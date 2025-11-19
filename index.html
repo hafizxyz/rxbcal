@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- MOBILE FIX -->
+  <title>Robux Cut Calculator</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: #e5e5e5;
+      font-family: system-ui, Arial;
+      max-width: 600px; 
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #ffffff;
+      font-size: 26px;
+    }
+
+    label {
+      font-size: 18px;
+    }
+
+    input[type=number] {
+      width: 100%;
+      padding: 14px;
+      font-size: 20px; /* bigger for mobile */
+      margin-top: 10px;
+      border-radius: 12px;
+      border: 1px solid #2d2d2d;
+      outline: none;
+      background: #1a1a1a;
+      color: #fff;
+      transition: 0.2s;
+      -moz-appearance: textfield;
+    }
+
+    /* Remove number spinner arrows */
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type=number]:focus {
+      border-color: #76ff76;
+      box-shadow: 0 0 6px #76ff7655;
+    }
+
+    .box {
+      background: #1a1a1a;
+      padding: 18px;
+      border-radius: 14px;
+      margin-top: 22px;
+      font-size: 20px; /* bigger text for mobile */
+      line-height: 1.8;
+      border: 1px solid #2d2d2d;
+    }
+
+    .highlight {
+      color: #76ff76;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Robux Cut Calculator</h2>
+
+  <label>Enter Robux Amount</label>
+  <input id="amount" type="number" step="any" placeholder="Type here...">
+
+  <div class="box">
+    <div>After 30% Cut: <span id="after" class="highlight">0</span> Robux</div>
+    <div>Before 30% Cut: <span id="before" class="highlight">0</span> Robux</div>
+  </div>
+
+  <script>
+    const amountInput = document.getElementById("amount");
+    const afterSpan = document.getElementById("after");
+    const beforeSpan = document.getElementById("before");
+
+    function update() {
+      const x = parseFloat(amountInput.value) || 0;
+
+      const after = x * 0.70;
+      const before = x / 0.70;
+
+      afterSpan.textContent = after.toFixed(2);
+      beforeSpan.textContent = before.toFixed(2);
+    }
+
+    amountInput.addEventListener("input", update);
+  </script>
+
+</body>
+</html>
