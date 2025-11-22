@@ -1,1 +1,1 @@
-https://hafizxyz.github.io/rbxcal/
+https://hafizxyz.github.io/rxbcal/
